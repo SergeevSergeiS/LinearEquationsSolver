@@ -1,16 +1,13 @@
 public class LinearEquation {
 
     public static Complex[][] solveLinearEquation(Complex[][] matrix, int numofrows){
-        //first part of algorithm
         for(int i = 0; i < numofrows; i++){
             printarr(matrix);
             Row row = new Row();
             matrix = row.rowManipulation(matrix, i);
         }
-        //backSubstitution
         if(Matrix.str.equals("")) {
             for (int i = numofrows - 1; i > 0; i--) {
-                //System.out.println(Arrays.deepToString(matrix));
                 matrix = backSub(matrix, i);
             }
             if(Row.columnSwaps.size() != 0){
@@ -23,7 +20,6 @@ public class LinearEquation {
 
     private static Complex[][] backSub(Complex[][] matrix, int i){
         Complex[] row = matrix[i];
-
         for(int a = i - 1; a >= 0; a--) {
             Complex[] prevrow = matrix[a];
             Complex[] temprow = new Complex[row.length];

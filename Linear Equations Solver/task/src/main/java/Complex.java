@@ -18,7 +18,6 @@ public class Complex {
                     imaginary = Double.parseDouble(num.substring(0, num.length() - 1));
                 }
             }
-            //-img minus == 0, plus == -1
             if(minusIdx == 0 && plusIdx == -1){
                 real = 0;
                 if(num.length() == 2){
@@ -27,7 +26,6 @@ public class Complex {
                     imaginary = Double.parseDouble(num.substring(0, num.length() - 1));
                 }
             }
-            //-real+img minus == 0, plus == smth
             if(minusIdx == 0 && plusIdx > 0){
                 real = Double.parseDouble(num.substring(0, plusIdx));
                 if(Math.abs(iIdx - plusIdx) == 1){
@@ -36,7 +34,6 @@ public class Complex {
                     imaginary = Double.parseDouble(num.substring(plusIdx, num.length() - 1));
                 }
             }
-            //real+img minus == -1, plus == smth
             if(minusIdx == -1 && plusIdx > 0){
                 real = Double.parseDouble(num.substring(0, plusIdx));
                 if(Math.abs(iIdx - plusIdx) == 1){
@@ -45,7 +42,6 @@ public class Complex {
                     imaginary = Double.parseDouble(num.substring(plusIdx, num.length() - 1));
                 }
             }
-            //-real-img minus == smth plus == -1
             if(minusIdx > 0 && plusIdx == -1){
                 real = Double.parseDouble(num.substring(0, minusIdx));
                 if(Math.abs(minusIdx - iIdx) == 1){
@@ -56,7 +52,6 @@ public class Complex {
             }
 
         }else{
-            //real or -real
             real = Double.parseDouble(num);
             imaginary = 0;
         }
@@ -89,7 +84,6 @@ public class Complex {
     public static Complex Multiplication(Complex num1, Complex num2){
         double real = num1.real * num2.real + num1.imaginary * num2.imaginary * -1;
         double img = num1.real * num2.imaginary + num1.imaginary * num2.real;
-        //System.out.println("Multiply: " + num1 + " x " + num2 + " = " + new Complex(real,img) );
         return new Complex(real, img);
     }
 
@@ -97,15 +91,14 @@ public class Complex {
         double real = (num1.real * num2.real + num1.imaginary * num2.imaginary)/(Math.pow(num2.real, 2) + Math.pow(num2.imaginary, 2));
         double img = 0;
         if(num1.imaginary != 0) {
-            img = num1.imaginary / num2.real; //aka img/real
+            img = num1.imaginary / num2.real;
         }
-        if(num2.imaginary != 0) { //real/img (forgot negative sign?)
+        if(num2.imaginary != 0) {
             img = -(num1.real*num2.imaginary)/(Math.pow(num2.real,2) + Math.pow(num2.imaginary, 2));
         }
-        if(num1.imaginary != 0 && num2.imaginary != 0) { //img/img
+        if(num1.imaginary != 0 && num2.imaginary != 0) {
             img = (num1.imaginary * num2.real - num1.real * num2.imaginary) / (Math.pow(num2.real, 2) + Math.pow(num2.imaginary, 2));
         }
-        //System.out.println("Division: " + num1 + " / " + num2 + " = " + new Complex(real,img) );
         return new Complex(real, img);
     }
 

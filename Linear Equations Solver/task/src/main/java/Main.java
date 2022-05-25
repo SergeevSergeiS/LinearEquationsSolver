@@ -16,10 +16,8 @@ public class Main {
             }
             if(args[i].equals("-out")){
                 exportfilename = args[i+1];
-                //System.out.println("Saved to file " + args[i+1]);
             }
         }
-        //importfile("in.txt"); exportfile("out.txt");
         importfile(infilename); exportfile(exportfilename);
     }
     private static void importfile(String filename){
@@ -56,7 +54,6 @@ public class Main {
         try {
             FileWriter myWriter = new FileWriter(filename);
             String[] solution = Matrix.getMatrixSolution();
-            //System.out.println(Arrays.toString(solution));
             for(int i = 0; i < solution.length; i++) {
                 myWriter.write(solution[i] + "\n");
             }

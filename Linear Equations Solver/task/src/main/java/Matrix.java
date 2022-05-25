@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.List;
-import static java.lang.Math.round;
 
 public class Matrix {
     public static Complex[][] matrix;
@@ -13,7 +12,6 @@ public class Matrix {
         matrix = new Complex[numofrows][numofcolumns];
         formMatrix(list);
         calculations();
-        //System.out.println(Arrays.deepToString(matrix));
     }
     private void formMatrix(List<List<String>> list){
         for(int i = 0; i < numofrows; i++){
@@ -59,7 +57,6 @@ public class Matrix {
                 numofsigeqns++;
             }
         }
-        //System.out.println(numofsigeqns);
         if(numofsigeqns < numofcolumns - 1){
             //System.out.println(numofsigeqns);
             System.out.println("Infinitely many solutions");
@@ -79,6 +76,5 @@ public class Matrix {
                 break;
             }
         }
-
     }
 }
